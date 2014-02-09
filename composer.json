@@ -1,0 +1,19 @@
+{
+    "name": "troymccabe/rdio",
+    "authors": [{
+        "name": "Troy McCabe",
+        "email": "troymccabe@gmail.com"
+    }],
+    "autoload": {
+        "psr-0": {
+            "TM\\Rdio\\": "src/"
+        }
+    },
+    "require": {
+        "guzzle/http": "3.7.*@dev",
+        "jms/serializer": "0.14.*@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    }
+}
