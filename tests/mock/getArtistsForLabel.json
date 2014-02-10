@@ -1,0 +1,19 @@
+HTTP/1.1 0 
+X-Mashery-Responder: prod-p-worker-lax-51.mashery.com
+Server: nginx/1.2.4
+Date: Sun, 09 Feb 2014 23:25:33 GMT
+Content-Type: application/json
+Connection: keep-alive
+X-Srv: srv-108-16
+Content-Language: en
+Vary: Accept-Language, Cookie
+Cache-Control: no-cache
+Access-Control-Allow-Origin: *
+P3P: CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy for more info."
+X-Version: 720
+Accept-Ranges: bytes
+Content-Length: 370
+
+~~~~~~~~~~
+
+{"status": "ok", "result": [{"key": "r433683", "name": "Jonathan Coulton", "shortUrl": "http://rd.io/x/Qi1EwVA/", "url": "/artist/Jonathan_Coulton/", "hasRadio": true, "length": 146, "baseIcon": "artist/no-artist-image-square.png", "radioKey": "rr433683", "icon": "http://rdio-d.cdn3.rdio.com/artist/no-artist-image-square.png", "type": "r", "topSongsKey": "tr433683"}]}

@@ -13,3 +13,4 @@ Simply create the client with your key and secret.
 With the client, you can then request information using the methods listed in the Rdio API documentation.
 
 ## Authorized requests
+TODO

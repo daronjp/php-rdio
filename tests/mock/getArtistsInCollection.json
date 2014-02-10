@@ -1,0 +1,19 @@
+HTTP/1.1 0 
+X-Mashery-Responder: prod-p-worker-lax-51.mashery.com
+Server: nginx/1.2.4
+Date: Sun, 09 Feb 2014 23:25:49 GMT
+Content-Type: application/json
+Connection: keep-alive
+X-Srv: srv-207-16
+Content-Language: en
+Vary: Accept-Language, Cookie
+Cache-Control: no-cache
+Access-Control-Allow-Origin: *
+P3P: CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy for more info."
+X-Version: 720
+Accept-Ranges: bytes
+Content-Length: 914
+
+~~~~~~~~~~
+
+{"status": "ok", "result": [{"userName": "Troy McCabe", "key": "rl296603|295650", "name": "10 Years", "artistKey": "r296603", "url": "/artist/10_Years/", "shortUrl": "http://rd.io/x/Qi1G2dg/", "hasRadio": true, "length": 100, "artistUrl": "/artist/10_Years/", "baseIcon": "artist/no-artist-image-square.png", "radioKey": "rr296603", "userKey": "s295650", "icon": "http://rdio-d.cdn3.rdio.com/artist/no-artist-image-square.png", "type": "rl", "topSongsKey": "tr296603"}, {"userName": "Troy McCabe", "key": "rl233421|295650", "name": "12 Stones", "artistKey": "r233421", "url": "/artist/12_Stones/", "shortUrl": "http://rd.io/x/Qi1B0I4/", "hasRadio": true, "length": 83, "artistUrl": "/artist/12_Stones/", "baseIcon": "artist/no-artist-image-square.png", "radioKey": "rr233421", "userKey": "s295650", "icon": "http://rdio-d.cdn3.rdio.com/artist/no-artist-image-square.png", "type": "rl", "topSongsKey": "tr233421"}]}

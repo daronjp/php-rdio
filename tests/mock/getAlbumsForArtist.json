@@ -1,0 +1,19 @@
+HTTP/1.1 0 
+X-Mashery-Responder: prod-p-worker-lax-52.mashery.com
+Server: nginx/1.2.4
+Date: Sun, 09 Feb 2014 23:25:21 GMT
+Content-Type: application/json
+Connection: keep-alive
+Vary: Accept-Encoding, Accept-Language, Cookie
+X-Srv: srv-108-15
+Content-Language: en
+Cache-Control: no-cache
+Access-Control-Allow-Origin: *
+P3P: CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy for more info."
+X-Version: 720
+Accept-Ranges: bytes
+Content-Length: 1825
+
+~~~~~~~~~~
+
+{"status": "ok", "result": [{"baseIcon": "album/2/4/e/000000000005ae42/square-200.jpg", "releaseDate": "2009-06-30", "artistUrl": "/artist/Jonathan_Coulton/", "duration": 4368, "isClean": false, "shortUrl": "http://rd.io/x/Qj5H8QE/", "canStream": true, "embedUrl": "https://rd.io/e/Qj5H8QE/", "type": "a", "price": "9.99", "key": "a372290", "icon": "http://rdio-c.cdn3.rdio.com/album/2/4/e/000000000005ae42/square-200.jpg", "canSample": true, "name": "Best. Concert. Ever.", "isExplicit": false, "artist": "Jonathan Coulton", "url": "/artist/Jonathan_Coulton/album/Best._Concert._Ever./", "artistKey": "r433683", "length": 20, "trackKeys": ["t4545637", "t4545659", "t4545677", "t4545701", "t4545721", "t4545742", "t4545771", "t4545790", "t4545814", "t4545837", "t4545869", "t4545890", "t4545909", "t4545941", "t4545966", "t4545996", "t4546014", "t4546040", "t4546060", "t4546079"], "canTether": true, "displayDate": "Jun 30, 2009"}, {"baseIcon": "album/6/4/b/00000000000fab46/square-200.jpg", "releaseDate": "2011-11-08", "artistUrl": "/artist/Jonathan_Coulton/", "duration": 2884, "isClean": false, "shortUrl": "http://rd.io/x/Qj5N9AU/", "canStream": true, "embedUrl": "https://rd.io/e/Qj5N9AU/", "type": "a", "price": "9.99", "key": "a1026886", "icon": "http://rdio-b.cdn3.rdio.com/album/6/4/b/00000000000fab46/square-200.jpg", "canSample": true, "name": "Artificial Heart", "isExplicit": false, "artist": "Jonathan Coulton", "url": "/artist/Jonathan_Coulton/album/Artificial_Heart/", "artistKey": "r433683", "length": 18, "trackKeys": ["t11852797", "t11852833", "t11852884", "t11852940", "t11852980", "t11853036", "t11853072", "t11853118", "t11853157", "t11853189", "t11853240", "t11853286", "t11853338", "t11853379", "t11853432", "t11853484", "t11853561", "t11853604"], "canTether": true, "displayDate": "Nov  8, 2011"}]}

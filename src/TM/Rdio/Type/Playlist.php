@@ -11,6 +11,7 @@
 
 namespace TM\Rdio\Type;
 
+use JMS\Serializer\Annotation\PostDeserialize;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
@@ -115,7 +116,7 @@ class Playlist extends Base
      * when the playlist was last modified
      *
      * @SerializedName("lastUpdated")
-     * @Type("DateTime")
+     * @Type("double")
      *
      * @var \DateTime
      */
@@ -671,5 +672,19 @@ class Playlist extends Base
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * Cleans the date
+     *
+     * It comes back as unix timestamp + millis
+     *
+     * @PostDeserialize
+     */
+    protected function cleanDate()
+    {
+        $ts = (int)$this->lastUpdated;
+        $this->lastUpdated = new \DateTime();
+        $this->lastUpdated->setTimestamp($ts);
     }
 }

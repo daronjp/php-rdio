@@ -1,0 +1,19 @@
+HTTP/1.1 0 
+X-Mashery-Responder: prod-p-worker-lax-04.mashery.com
+Server: nginx/1.2.4
+Date: Sun, 09 Feb 2014 23:25:41 GMT
+Content-Type: application/json
+Connection: keep-alive
+X-Srv: srv-210-27
+Content-Language: en
+Vary: Accept-Language, Cookie
+Cache-Control: no-cache
+Access-Control-Allow-Origin: *
+P3P: CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy for more info."
+X-Version: 720
+Accept-Ranges: bytes
+Content-Length: 798
+
+~~~~~~~~~~
+
+{"status": "ok", "result": {"artist_count": 2, "number_results": 2, "results": [{"key": "r433683", "name": "Jonathan Coulton", "shortUrl": "http://rd.io/x/Qi1EwVA/", "url": "/artist/Jonathan_Coulton/", "hasRadio": true, "length": 146, "baseIcon": "artist/no-artist-image-square.png", "radioKey": "rr433683", "icon": "http://rdio-d.cdn3.rdio.com/artist/no-artist-image-square.png", "type": "r", "topSongsKey": "tr433683"}, {"key": "r2439744", "name": "Jonathan Coulton & John Roderick", "shortUrl": "http://rd.io/x/Qi1nZQM/", "url": "/artist/Jonathan_Coulton__John_Roderick/", "hasRadio": true, "length": 10, "baseIcon": "artist/no-artist-image-square.png", "radioKey": "rr2439744", "icon": "http://rdio-d.cdn3.rdio.com/artist/no-artist-image-square.png", "type": "r", "topSongsKey": "tr2439744"}]}}

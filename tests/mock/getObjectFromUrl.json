@@ -1,0 +1,19 @@
+HTTP/1.1 0 
+X-Mashery-Responder: prod-p-worker-lax-04.mashery.com
+Server: nginx/1.2.4
+Date: Sun, 09 Feb 2014 23:25:59 GMT
+Content-Type: application/json
+Connection: keep-alive
+X-Srv: srv-230-14
+Content-Language: en
+Vary: Accept-Language, Cookie
+Cache-Control: no-cache
+Access-Control-Allow-Origin: *
+P3P: CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy for more info."
+X-Version: 720
+Accept-Ranges: bytes
+Content-Length: 918
+
+~~~~~~~~~~
+
+{"status": "ok", "result": {"baseIcon": "album/6/4/b/00000000000fab46/square-200.jpg", "releaseDate": "2011-11-08", "artistUrl": "/artist/Jonathan_Coulton/", "duration": 2884, "isClean": false, "shortUrl": "http://rd.io/x/Qj5N9AU/", "canStream": true, "embedUrl": "https://rd.io/e/Qj5N9AU/", "type": "a", "price": "9.99", "key": "a1026886", "icon": "http://rdio-b.cdn3.rdio.com/album/6/4/b/00000000000fab46/square-200.jpg", "canSample": true, "name": "Artificial Heart", "isExplicit": false, "artist": "Jonathan Coulton", "url": "/artist/Jonathan_Coulton/album/Artificial_Heart/", "artistKey": "r433683", "length": 18, "trackKeys": ["t11852797", "t11852833", "t11852884", "t11852940", "t11852980", "t11853036", "t11853072", "t11853118", "t11853157", "t11853189", "t11853240", "t11853286", "t11853338", "t11853379", "t11853432", "t11853484", "t11853561", "t11853604"], "canTether": true, "displayDate": "Nov  8, 2011"}}

@@ -555,7 +555,7 @@ class Client
 
         $args = func_get_args();
         $args[0] = implode(',', $keys);
-        return $this->getCollection(__FUNCTION__, func_get_args(), ['keys', 'options', 'extras']);
+        return $this->getCollection(__FUNCTION__, $args, ['keys', 'options', 'extras']);
     }
 
     /**
@@ -616,7 +616,11 @@ class Client
             throw new InvalidArgumentException('`$orderedList` must be `null` or boolean');
         }
 
-        return $this->getSingle(__FUNCTION__, func_get_args(), ['user', 'ordered_list', 'extras'], 'PlaylistCollection');
+        $type = 'PlaylistCollection';
+        if ($orderedList) {
+            $type = 'Base';
+        }
+        return $this->getSingle(__FUNCTION__, func_get_args(), ['user', 'ordered_list', 'extras'], $type);
     }
 
     /**
@@ -664,17 +668,76 @@ class Client
     //</editor-fold>
     //<editor-fold desc="Social">
     /** @TODO */
-    public function addFriend(){}
-    public function approveFollower(){}
-    public function currentUser(){}
-    public function findUser(){}
-    public function hideFollower(){}
-    public function removeFriend(){}
-    public function unapproveFollower(){}
-    public function userFollowers(){}
-    public function userFollowing(){}
-    public function userHiddenFollowers(){}
-    public function userPendingFollowers(){}
+    public function addFriend($user){}
+    public function approveFollower($user, $extras = null){}
+    public function currentUser($extras = null){}
+
+    /**
+     * Find a user either by email address or by their username.
+     *
+     * Exactly one of email or vanityName must be supplied.
+     *
+     * @param string|null $email an email address
+     * @param string|null $vanityName a username
+     * @param string|null $extras see Extras Parameter – a list, comma separated
+     * @return Type\User
+     * @throws Exception\InvalidArgumentException
+     */
+    public function findUser($email = null, $vanityName = null, $extras = null)
+    {
+        if (!is_null($email) && !is_null($vanityName)) {
+            throw new InvalidArgumentException('Only one of `$email` or `$vanityName` may be specified.');
+        }
+
+        return $this->getSingle(__FUNCTION__, func_get_args(), ['email', 'vanityName', 'extras']);
+    }
+
+    /** @TODO */
+    public function hideFollower($user, $extras = null){}
+    public function removeFriend($user){}
+    public function unapproveFollower($user, $extras = null){}
+
+    /**
+     * Get a list of users following a users.
+     *
+     * @param string $user the user
+     * @param string|null $inCommon if present, return followers of both the user argument and this user
+     * @param string|null $inNetwork if present, return followers of the user argument who are being followed by this user
+     * @param int|null $start the offset of the first result to return
+     * @param int|null $count the maximum number of results to return
+     * @param string|null $extras see Extras Parameter – a list, comma separated
+     * @return Type\User[]
+     * @throws Exception\InvalidArgumentException
+     */
+    public function userFollowers($user, $inCommon = null, $inNetwork = null, $start = 0, $count = 10, $extras = null)
+    {
+        return $this->getCollection(__FUNCTION__, func_get_args(), ['user', 'inCommon', 'inNetwork', 'start', 'count', 'extras']);
+    }
+
+    /**
+     * Get a list of users that a user follows.
+     *
+     * @param string $user the user
+     * @param string|null $inCommon if present, return friends being followed by both the user argument and this user
+     * @param bool|null $interleave return tastemakers and friends interleaved with the ratio 1:2
+     * @param int|null $start the offset of the first result to return
+     * @param int|null $count the maximum number of results to return
+     * @param string|null $extras see Extras Parameter – a list, comma separated
+     * @return Type\User[]
+     * @throws Exception\InvalidArgumentException
+     */
+    public function userFollowing($user, $inCommon = null, $interleave = false, $start = 0, $count = 10, $extras = null)
+    {
+        if (!is_null($interleave) && !is_bool($interleave)) {
+            throw new InvalidArgumentException('`$interleave` must be `null` or boolean');
+        }
+
+        return $this->getCollection(__FUNCTION__, func_get_args(), ['user', 'inCommon', 'interleave', 'start', 'count', 'extras']);
+    }
+
+    /** @TODO */
+    public function userHiddenFollowers($start = null, $count = null, $extras = null){}
+    public function userPendingFollowers($start = null, $count = null, $extras = null){}
     //</editor-fold>
 
     //<editor-fold desc="Internal">
@@ -732,8 +795,15 @@ class Client
      */
     protected function getJson($params)
     {
-        $headers = ['User-Agent' => 'TM-Rdio-Client'];
-        $json = json_decode($this->httpClient->post(self::API_ROOT, $headers, $params)->send()->getBody(true));
+        $headers = ['User-Agent' => 'TM-Rdio_Client'];
+        $response = $this->httpClient->post(self::API_ROOT, $headers, $params)->send();
+        $body = $response->getBody(true);
+
+        // Keep for saving mocks when needed, cause I'm lazy!
+        $headers = $response->getRawHeaders();
+        file_put_contents("./tests/mock/{$params['method']}.json", "{$headers}~~~~~~~~~~\n\n{$body}");
+
+        $json = json_decode($body);
 
         if ($json->status !== 'ok') {
             throw new RdioException($json->message);

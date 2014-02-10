@@ -1,0 +1,19 @@
+HTTP/1.1 0 
+X-Mashery-Responder: prod-p-worker-lax-01.mashery.com
+Server: nginx/1.2.4
+Date: Sun, 09 Feb 2014 23:25:19 GMT
+Content-Type: application/json
+Connection: keep-alive
+Vary: Accept-Encoding, Accept-Language, Cookie
+X-Srv: srv-210-27
+Content-Language: en
+Cache-Control: no-cache
+Access-Control-Allow-Origin: *
+P3P: CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy for more info."
+X-Version: 720
+Accept-Ranges: bytes
+Content-Length: 2040
+
+~~~~~~~~~~
+
+{"status": "ok", "result": [{"baseIcon": "album/7/5/5/000000000034a557/4/square-200.jpg", "releaseDate": "2013-09-24", "artistUrl": "/artist/Drake/", "duration": 4076, "isClean": false, "shortUrl": "http://rd.io/x/Qj52-hQ/", "canStream": true, "embedUrl": "https://rd.io/e/Qj52-hQ/", "type": "a", "price": "14.99", "key": "a3450199", "icon": "http://rdio-b.cdn3.rdio.com/album/7/5/5/000000000034a557/4/square-200.jpg", "canSample": true, "hits": 275433, "name": "Nothing Was The Same (Deluxe)", "isExplicit": true, "artist": "Drake", "url": "/artist/Drake/album/Nothing_Was_The_Same_(Deluxe)_3/", "artistKey": "r188975", "length": 15, "trackKeys": ["t36551277", "t36551318", "t36551349", "t36551367", "t36551389", "t36551410", "t36551466", "t36551512", "t36551552", "t36551601", "t36551639", "t36551677", "t36551717", "t36551775", "t36551801"], "canTether": true, "displayDate": "Sep 24, 2013"}, {"baseIcon": "album/5/9/d/0000000000393d95/3/square-200.jpg", "releaseDate": "2013-11-25", "artistUrl": "/artist/Various_Artists/", "duration": 4156, "isClean": false, "shortUrl": "http://rd.io/x/Qj57YtY/", "canStream": true, "embedUrl": "https://rd.io/e/Qj57YtY/", "type": "a", "price": "11.99", "key": "a3751317", "icon": "http://rdio-d.cdn3.rdio.com/album/5/9/d/0000000000393d95/3/square-200.jpg", "canSample": true, "hits": 234436, "name": "Frozen (Original Motion Picture Soundtrack)", "isExplicit": false, "artist": "Various Artists", "url": "/artist/Various_Artists/album/Frozen_(Original_Motion_Picture_Soundtrack)_2/", "artistKey": "r62", "length": 32, "trackKeys": ["t39978266", "t39978268", "t39978271", "t39978275", "t39978279", "t39978283", "t39978287", "t39978294", "t39978298", "t39978304", "t39978308", "t39978310", "t39978314", "t39978317", "t39978319", "t39978322", "t39978323", "t39978326", "t39978327", "t39978328", "t39978329", "t39978330", "t39978332", "t39978333", "t39978335", "t39978337", "t39978338", "t39978341", "t39978343", "t39978346", "t39978350", "t39978354"], "canTether": true, "displayDate": "Nov 25, 2013"}]}

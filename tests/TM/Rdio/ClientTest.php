@@ -11,6 +11,8 @@
 
 namespace TM\Rdio;
 
+use Guzzle\Http\Message\Response;
+
 /**
  * The main Rdio Client tests
  *
@@ -52,7 +54,36 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->client = new Client();
+        $this->client = new Client($_SERVER['CONSUMER_KEY'], $_SERVER['CONSUMER_SECRET']);
+
+        $testName = lcfirst(substr($this->getName(), 4));
+        $mockFileName = "./tests/mock/{$testName}.json";
+
+        if (file_exists($mockFileName)) {
+            $mockResponse = file_get_contents("./tests/mock/{$testName}.json");
+            $mockResponseParts = explode('~~~~~~~~~~', $mockResponse);
+            $headerStrings = explode("\r\n", $mockResponseParts[0]);
+            $headers = [];
+            for ($i = 1; $i < count($headerStrings); $i++) {
+                $stringParts = explode(': ', $headerStrings[$i]);
+                if (isset($stringParts[0]) && isset($stringParts[1])) {
+                    $headers[$stringParts[0]] = $stringParts[1];
+                }
+            }
+            $body = trim($mockResponseParts[1]);
+            $response = new Response(preg_replace('/^HTTP \/1.1 (\d+) .*$/', '$1', $headerStrings[0]), $headers, $body);
+
+            $mockHttpClient = $this->getMock('\Guzzle\Http\Client', ['send']);
+            $mockHttpClient
+                ->expects($this->any())
+                ->method('send')
+                ->will($this->returnValue($response));
+
+            $cls = new \ReflectionClass('\TM\Rdio\Client');
+            $httpClientProp = $cls->getProperty('httpClient');
+            $httpClientProp->setAccessible(true);
+            $httpClientProp->setValue($this->client, $mockHttpClient);
+        }
     }
 
     /**
@@ -258,12 +289,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \TM\Rdio\Exception\InvalidArgumentException
      */
-    public function testGetAlbumForArtistInCollectionBadSort()
+    public function testGetAlbumsForArtistInCollectionBadSort()
     {
         $this->client->getAlbumsForArtistInCollection('s123', 'a123', 'badsort');
     }
 
-    public function testGetAlbumForArtistInCollection()
+    public function testGetAlbumsForArtistInCollection()
     {
         $albums = $this->client->getAlbumsForArtistInCollection($this->keys['user'], $this->keys['artist']);
         $this->assertEquals($this->keys['collection_album'], $albums[0]->getKey());
@@ -336,6 +367,112 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     public function testGet()
     {
-        $this->assertEquals('Jonathan Coulton', $this->client->get([$this->keys['artist']])->getName());
+        $this->assertEquals('Jonathan Coulton', $this->client->get([$this->keys['artist']])[0]->getName());
     }
+
+    public function testGetObjectFromShortCode()
+    {
+        $this->assertEquals($this->keys['album'], $this->client->getObjectFromShortCode('QVvAvSJQ-Qc')->getKey());
+    }
+
+    public function testGetObjectFromUrl()
+    {
+        $this->assertEquals($this->keys['album'], $this->client->getObjectFromUrl('artist/Jonathan_Coulton/album/Artificial_Heart/')->getKey());
+    }
+
+    public function testGetPlaybackToken()
+    {
+        $this->assertContains('_____', $this->client->getPlaybackToken('troymccabe.com'));
+    }
+
+    /** @TODO */
+    public function testAddToPlaylist(){}
+    public function testCreatePlaylist(){}
+    public function testDeletePlaylist(){}
+
+    /**
+     * @expectedException \TM\Rdio\Exception\InvalidArgumentException
+     */
+    public function testGetPlaylistsBadOrderedList()
+    {
+        $this->client->getPlaylists('s123', 'badorderedlist');
+    }
+
+    public function testGetPlaylists()
+    {
+        $this->assertEquals($this->keys['playlist'], $this->client->getPlaylists($this->keys['user'], true));
+    }
+
+    /**
+     * @expectedException \TM\Rdio\Exception\InvalidArgumentException
+     */
+    public function testGetUserPlaylistsBadKind()
+    {
+        $this->client->getUserPlaylists('s123', 'badkind');
+    }
+
+    /**
+     * @expectedException \TM\Rdio\Exception\InvalidArgumentException
+     */
+    public function testGetUserPlaylistsBadSort()
+    {
+        $this->client->getUserPlaylists('s123', null, null, null, 'badsort');
+    }
+
+    public function testGetUserPlaylists()
+    {
+        $this->assertEquals($this->keys['playlist'], $this->client->getUserPlaylists($this->keys['user'])[0]->getKey());
+    }
+
+    /** @TODO */
+    public function testRemoveFromPlaylist(){}
+    public function testSetPlaylistCollaborating(){}
+    public function testSetPlaylistCollaborationMode(){}
+    public function testSetPlaylistFields(){}
+    public function testSetPlaylistOrder(){}
+
+    /** @TODO */
+    public function testAddFriend(){}
+    public function testApproveFollower(){}
+    public function testCurrentUser(){}
+
+    /**
+     * @expectedException \TM\Rdio\Exception\InvalidArgumentException
+     */
+    public function testFindUserBadArgs()
+    {
+        $this->client->findUser('email_and', 'name');
+    }
+
+    public function testFindUser()
+    {
+        $this->assertEquals($this->keys['user'], $this->client->findUser(null, 'troymccabe')->getKey());
+    }
+
+    /** @TODO */
+    public function testHideFollower(){}
+    public function testRemoveFriend(){}
+    public function testUnapproveFollower(){}
+
+    public function testUserFollowers()
+    {
+        $this->assertEquals('s17852145', $this->client->userFollowers($this->keys['user'])[0]->getKey());
+    }
+
+    /**
+     * @expectedException \TM\Rdio\Exception\InvalidArgumentException
+     */
+    public function testUserFollowingBadInterleave()
+    {
+        $this->client->userFollowing('a123', null, 'badinterleave');
+    }
+
+    public function testUserFollowing()
+    {
+        $this->assertEquals('s4227455', $this->client->userFollowing($this->keys['user'])[0]->getKey());
+    }
+
+    /** @TODO */
+    public function testUserHiddenFollowers(){}
+    public function testUserPendingFollowers(){}
 }

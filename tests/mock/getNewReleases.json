@@ -1,0 +1,19 @@
+HTTP/1.1 0 
+X-Mashery-Responder: prod-p-worker-lax-51.mashery.com
+Server: nginx/1.2.4
+Date: Sun, 09 Feb 2014 23:25:20 GMT
+Content-Type: application/json
+Connection: keep-alive
+Vary: Accept-Encoding, Accept-Language, Cookie
+X-Srv: srv-230-07
+Content-Language: en
+Cache-Control: no-cache
+Access-Control-Allow-Origin: *
+P3P: CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy for more info."
+X-Version: 720
+Accept-Ranges: bytes
+Content-Length: 1709
+
+~~~~~~~~~~
+
+{"status": "ok", "result": [{"baseIcon": "album/0/6/3/00000000003ae360/4/square-200.jpg", "releaseDate": "2014-02-11", "artistUrl": "/artist/Bombay_Bicycle_Club/", "duration": 2688, "isClean": false, "shortUrl": "http://rd.io/x/Qj54vCM/", "canStream": true, "embedUrl": "https://rd.io/e/Qj54vCM/", "type": "a", "price": "9.90", "key": "a3859296", "icon": "http://rdio-a.cdn3.rdio.com/album/0/6/3/00000000003ae360/4/square-200.jpg", "canSample": true, "name": "So Long, See You Tomorrow", "isExplicit": false, "artist": "Bombay Bicycle Club", "url": "/artist/Bombay_Bicycle_Club/album/So_Long%2C_See_You_Tomorrow/", "artistKey": "r318629", "length": 10, "trackKeys": ["t41108502", "t41108570", "t41108606", "t41108660", "t41108736", "t41108798", "t41108837", "t41108877", "t41108957", "t41108996"], "canTether": true, "displayDate": "Feb 11, 2014"}, {"baseIcon": "album/4/7/b/00000000003d0b74/5/square-200.jpg", "releaseDate": "2014-02-04", "artistUrl": "/artist/Toni_Braxton%2C_Babyface/", "duration": 2621, "isClean": false, "shortUrl": "http://rd.io/x/Qj5_VDc/", "canStream": true, "embedUrl": "https://rd.io/e/Qj5_VDc/", "type": "a", "price": "9.99", "key": "a4000628", "icon": "http://rdio-d.cdn3.rdio.com/album/4/7/b/00000000003d0b74/5/square-200.jpg", "canSample": true, "name": "Love, Marriage\u200e & Divorce", "isExplicit": false, "artist": "Toni Braxton, Babyface", "url": "/artist/Toni_Braxton%2C_Babyface/album/Love%2C_Marriage%E2%80%8E__Divorce/", "artistKey": "r3254392", "length": 11, "trackKeys": ["t42715912", "t42715925", "t42715934", "t42715945", "t42715950", "t42715960", "t42715968", "t42715979", "t42715988", "t42715993", "t42716001"], "canTether": true, "displayDate": "Feb  4, 2014"}]}

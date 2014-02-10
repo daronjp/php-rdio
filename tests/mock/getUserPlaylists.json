@@ -1,0 +1,19 @@
+HTTP/1.1 0 
+X-Mashery-Responder: prod-p-worker-lax-02.mashery.com
+Server: nginx/1.2.4
+Date: Sun, 09 Feb 2014 23:26:10 GMT
+Content-Type: application/json
+Connection: keep-alive
+X-Srv: srv-210-28
+Content-Language: en
+Vary: Accept-Language, Cookie
+Cache-Control: no-cache
+Access-Control-Allow-Origin: *
+P3P: CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy for more info."
+X-Version: 720
+Accept-Ranges: bytes
+Content-Length: 522
+
+~~~~~~~~~~
+
+{"status": "ok", "result": [{"key": "p8163638", "ownerKey": "s295650", "name": "API Test", "url": "/people/troymccabe/playlists/8163638/API_Test/", "ownerIcon": "user/2/e/2/00000000000482e2/2/square-100.jpg", "owner": "Troy McCabe", "lastUpdated": 1391994380.0, "shortUrl": "http://rd.io/x/Qi8-znU/", "length": 2, "baseIcon": "album/6/4/b/00000000000fab46/square-200.jpg", "ownerUrl": "/people/troymccabe/", "embedUrl": "https://rd.io/e/Qi8-znU/", "type": "p", "icon": "http://m.rdio.com/_is/?aid=1026886-0&w=200&h=200"}]}

@@ -1,0 +1,19 @@
+HTTP/1.1 0 
+X-Mashery-Responder: prod-p-worker-lax-52.mashery.com
+Server: nginx/1.2.4
+Date: Sun, 09 Feb 2014 23:26:16 GMT
+Content-Type: application/json
+Connection: keep-alive
+X-Srv: srv-208-16
+Content-Language: en
+Vary: Accept-Language, Cookie
+Cache-Control: no-cache
+Access-Control-Allow-Origin: *
+P3P: CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy for more info."
+X-Version: 720
+Accept-Ranges: bytes
+Content-Length: 510
+
+~~~~~~~~~~
+
+{"status": "ok", "result": {"icon500": "http://rdio-d.cdn3.rdio.com/user/2/e/2/00000000000482e2/2/square-500.jpg", "firstName": "Troy", "baseIcon": "user/2/e/2/00000000000482e2/2/square-100.jpg", "gender": "m", "url": "/people/troymccabe/", "icon250": "http://rdio-d.cdn3.rdio.com/user/2/e/2/00000000000482e2/2/square-250.jpg", "key": "s295650", "lastName": "McCabe", "libraryVersion": 563, "isProtected": false, "type": "s", "icon": "http://rdio-d.cdn3.rdio.com/user/2/e/2/00000000000482e2/2/square-100.jpg"}}
