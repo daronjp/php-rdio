@@ -800,8 +800,8 @@ class Client
         $body = $response->getBody(true);
 
         // Keep for saving mocks when needed, cause I'm lazy!
-        $headers = $response->getRawHeaders();
-        file_put_contents("./tests/mock/{$params['method']}.json", "{$headers}~~~~~~~~~~\n\n{$body}");
+//        $headers = $response->getRawHeaders();
+//        file_put_contents("./tests/mock/{$params['method']}.json", "{$headers}~~~~~~~~~~\n\n{$body}");
 
         $json = json_decode($body);
 

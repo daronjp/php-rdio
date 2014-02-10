@@ -11,11 +11,14 @@
 
 namespace TM\Rdio\Type;
 
+use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
 /**
  * An album
+ *
+ * @AccessType("public_method")
  *
  * @package TM\Rdio\Type
  */
@@ -215,9 +218,9 @@ class Album extends Base
      * the release date of the album
      *
      * @SerializedName("releaseDate")
-     * @Type("string")
+     * @Type("DateTime<'Y-m-d'>")
      *
-     * @var string
+     * @var \DateTime
      */
     protected $releaseDate;
 
@@ -295,9 +298,9 @@ class Album extends Base
      * the label that this album is published by
      *
      * @SerializedName("label")
-     * @Type("string")
+     * @Type("TM\Rdio\Type\Label")
      *
-     * @var string
+     * @var Label
      */
     protected $label;
 

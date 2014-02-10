@@ -12,6 +12,7 @@
 namespace TM\Rdio;
 
 use Guzzle\Http\Message\Response;
+use ReflectionClass;;
 
 /**
  * The main Rdio Client tests
@@ -59,6 +60,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $testName = lcfirst(substr($this->getName(), 4));
         $mockFileName = "./tests/mock/{$testName}.json";
 
+        // load the saved response and make the fake Guzzle response from it.
         if (file_exists($mockFileName)) {
             $mockResponse = file_get_contents("./tests/mock/{$testName}.json");
             $mockResponseParts = explode('~~~~~~~~~~', $mockResponse);
@@ -79,7 +81,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
                 ->method('send')
                 ->will($this->returnValue($response));
 
-            $cls = new \ReflectionClass('\TM\Rdio\Client');
+            $cls = new ReflectionClass('\TM\Rdio\Client');
             $httpClientProp = $cls->getProperty('httpClient');
             $httpClientProp->setAccessible(true);
             $httpClientProp->setValue($this->client, $mockHttpClient);
@@ -475,4 +477,30 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /** @TODO */
     public function testUserHiddenFollowers(){}
     public function testUserPendingFollowers(){}
+
+    public function testDeserialize()
+    {
+        $x = 0;
+        foreach ($this->keys as $name => $value) {
+            $type = str_replace(' ' , '', ucwords(str_replace('_', ' ', $name)));
+            echo $type;
+            $this->client->get([$this->keys[$name]], null, $this->getExtras($type));
+
+            if ($x % 5 == 0) {
+                $x = 0;
+            }
+            $x++;
+        }
+    }
+
+    protected function getExtras($type)
+    {
+        $refClass = new ReflectionClass("\\TM\\Rdio\\Type\\{$type}");
+        $refProps = $refClass->getProperties();
+        $extras = [];
+        foreach ($refProps as $refProp) {
+            $extras[] = $refProp->getName();
+        }
+        return implode(',', $extras);
+    }
 }

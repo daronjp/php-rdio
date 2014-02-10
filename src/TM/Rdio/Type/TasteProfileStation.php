@@ -11,11 +11,14 @@
 
 namespace TM\Rdio\Type;
 
+use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
 /**
  * A taste profile station
+ *
+ * @AccessType("public_method")
  *
  * @package TM\Rdio\Type
  */

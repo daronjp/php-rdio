@@ -11,11 +11,14 @@
 
 namespace TM\Rdio\Type;
 
+use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
 /**
  * A song station
+ *
+ * @AccessType("public_method")
  *
  * @package TM\Rdio\Type
  */
@@ -155,9 +158,9 @@ class SongStation extends Base
      * the name of the artist whose album the track appears on
      *
      * @SerializedName("albumArtist")
-     * @Type("TM\Rdio\Type\Artist")
+     * @Type("string")
      *
-     * @var Artist
+     * @var string
      */
     protected $albumArtist;
 
@@ -305,9 +308,9 @@ class SongStation extends Base
      * the name of the artist who performed the track
      *
      * @SerializedName("artist")
-     * @Type("TM\Rdio\Type\Artist")
+     * @Type("string")
      *
-     * @var Artist
+     * @var string
      */
     protected $artist;
 
@@ -415,9 +418,9 @@ class SongStation extends Base
      * the International Standard Recording Codes (ISRC) for this track
      *
      * @SerializedName("isrcs")
-     * @Type("string")
+     * @Type("array<string>")
      *
-     * @var string
+     * @var string[]
      */
     protected $isrcs;
 

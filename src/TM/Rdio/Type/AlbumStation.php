@@ -11,11 +11,14 @@
 
 namespace TM\Rdio\Type;
 
+use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
 /**
  * An album station
+ *
+ * @AccessType("public_method")
  *
  * @package TM\Rdio\Type
  */
@@ -346,9 +349,9 @@ class AlbumStation extends Base
      * the label that this album is published by
      *
      * @SerializedName("label")
-     * @Type("string")
+     * @Type("TM\Rdio\Type\Label")
      *
-     * @var string
+     * @var Label
      */
     protected $label;
 
@@ -436,7 +439,7 @@ class AlbumStation extends Base
      * A list of albums represented in the station for display
      *
      * @SerializedName("albums")
-     * @Type("List<\TM\Rdio\Type\Album>")
+     * @Type("array<TM\Rdio\Type\Album>")
      *
      * @var Album[]
      */

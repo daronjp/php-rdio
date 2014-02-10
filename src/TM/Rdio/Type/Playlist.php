@@ -11,12 +11,15 @@
 
 namespace TM\Rdio\Type;
 
+use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\PostDeserialize;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
 /**
  * A playlist
+ *
+ * @AccessType("public_method")
  *
  * @package TM\Rdio\Type
  */
